@@ -1,3 +1,5 @@
+<%--@elvariable id="midgo" type="String"--%>
+<%--@elvariable id="userName" type="String"--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

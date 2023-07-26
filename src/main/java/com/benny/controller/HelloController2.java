@@ -14,6 +14,11 @@ import java.util.Map;
 @SessionAttributes(names = {"userName"})
 public class HelloController2 {
 
+    @RequestMapping(path = "/hello2main.controller", method = RequestMethod.GET)
+    public String processMainAction() {
+        return "form";
+    }
+
     @RequestMapping(path = "/hello2.controller", method = {RequestMethod.GET, RequestMethod.POST})
     public String processAction(@RequestParam("userName") String userName, Model m) {
 
@@ -25,11 +30,11 @@ public class HelloController2 {
         }
 
         if(errors!=null && !errors.isEmpty()) {
-            return "/form.jsp";
+            return "form";
         }
 
         m.addAttribute("userName",userName);
-        return "/Success.jsp";
+        return "Success";
     }
 
 }

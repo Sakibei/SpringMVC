@@ -9,19 +9,22 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     //用來註冊相當於beans.config.xml的java程式設定
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return new Class[] {RootAppConfig.class};
+//        return null;
     }
 
     //用來註冊相當於mvc-servlet.xml的java程式設定
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[] {WebAppConfig.class};
+//        return null;
     }
 
     //用來設定DispatcherServlet接收http請求的映射路徑
     @Override
     protected String[] getServletMappings() {
         return new String[] {"/"};
+//        return null;
     }
 
     //相當於web.xml中的CharacterEncodingFilter設定 (tomcat 9 才需要)

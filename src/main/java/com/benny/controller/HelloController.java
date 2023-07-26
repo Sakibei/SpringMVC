@@ -23,12 +23,12 @@ public class HelloController extends AbstractController {
         }
 
         if (errors != null && !errors.isEmpty()) {
-            return new ModelAndView("/form.jsp");
+            return new ModelAndView("form");
         }
 
         HttpSession session = request.getSession();
         session.setAttribute("userName", userName);
-        return new ModelAndView("/Success.jsp");
+        return new ModelAndView("Success");
     }
 
 }

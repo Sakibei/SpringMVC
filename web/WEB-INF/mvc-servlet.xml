@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.benny"/>
+	<mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+
+<!--	會被 ＠(Annotation Base) 取代-->
+<!--	<bean name="/hello.controller" class="com.benny.controller.HelloController"/>-->
+
+<!--	將請求自動解析成對服務器來說合法路徑 (ex: 對 "hello" 的請求會解析成 "/WEB-INF/pages/hello.jsp" )-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+		<property name="order" value="6"/>
+	</bean>
+
+</beans>

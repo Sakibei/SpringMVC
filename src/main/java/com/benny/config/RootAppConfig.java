@@ -25,7 +25,7 @@ public class RootAppConfig {
     @Bean
     public DataSource dataSource() throws IllegalArgumentException, NamingException {
         JndiObjectFactoryBean jndiBean = new JndiObjectFactoryBean();
-        jndiBean.setJndiName("java:comp/env/connectMySQLJdbc/springMvc");
+        jndiBean.setJndiName("java:comp/env/connectMySQLJdbc/spring");
         jndiBean.afterPropertiesSet();
         DataSource ds = (DataSource) jndiBean.getObject();
         return ds;

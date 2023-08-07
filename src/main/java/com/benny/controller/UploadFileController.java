@@ -32,7 +32,7 @@ public class UploadFileController {
         String fileName = mf.getOriginalFilename();
         System.out.println("fileName:" + fileName);
 
-        String saveFileDir = "/home/benny/upload/";
+        String saveFileDir = "C:/temp/upload/";
         File saveFilePath = new File(saveFileDir, fileName);
 
         byte[] b1 = mf.getBytes();

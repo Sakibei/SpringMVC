@@ -46,7 +46,7 @@ public class RootAppConfig {
         Properties props = new Properties();
 
         //要配合persist()+flush()使用
-//        props.put("hibernate.allow_update_outside_transaction", Boolean.TRUE);
+        props.put("hibernate.allow_update_outside_transaction", Boolean.TRUE);
 
         props.put("hibernate.dialect", org.hibernate.dialect.SQLServerDialect.class);
         props.put("hibernate.show_sql", Boolean.TRUE);

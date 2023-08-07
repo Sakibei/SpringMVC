@@ -6,6 +6,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="SpringWebMvcPreject" />
+          <element id="jpa-descriptors" facet="SpringWebMvcPreject/jpa/JPA" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-core:6.0.11" />
@@ -41,6 +42,11 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:6.0.11" />
           <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.33" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.21.9" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.13.0" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.5" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.15.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.15.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.15.2" />
         </element>
       </element>
     </root>

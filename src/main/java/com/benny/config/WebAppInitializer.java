@@ -4,6 +4,7 @@ import jakarta.servlet.Filter;
 import jakarta.servlet.MultipartConfigElement;
 import jakarta.servlet.ServletRegistration;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -29,15 +30,23 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 //        return null;
     }
 
-    //相當於web.xml中的CharacterEncodingFilter設定 (tomcat 9 才需要)
-    @Override
-    protected Filter[] getServletFilters() {
-        CharacterEncodingFilter cft = new CharacterEncodingFilter("UTF-8", true);
-        return new Filter[] {cft};
-    }
-
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setMultipartConfig(new MultipartConfigElement("C:/temp/upload/"));
     }
+
+    //相當於web.xml中的CharacterEncodingFilter設定 (tomcat 9 才需要)
+//    @Override
+//    protected Filter[] getServletFilters() {
+//        CharacterEncodingFilter cft = new CharacterEncodingFilter("UTF-8", true);
+//        return new Filter[] {cft};
+//    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter cef = new CharacterEncodingFilter("UTF-8", true);
+        HiddenHttpMethodFilter hmf = new HiddenHttpMethodFilter();
+        return new Filter[] {cef, hmf};
+    }
+
 }

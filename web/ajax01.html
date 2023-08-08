@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var xh = new XMLHttpRequest();
+        xh.open('get','json/profile2.json',false);
+        xh.send();
+        if(xh.status === 200){
+            console.log(xh.responseText);
+        }
+     // web status
+     // http://localhost:8080/ajax01.html
+    </script>
+</head>
+<body>
+
+<h3>ajax, open your F12 and see the console</h3>
+
+
+</body>
+</html>

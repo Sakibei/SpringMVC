@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax03</title>
+  <script>
+    var xh = new XMLHttpRequest();
+    xh.open('post', 'profiles.controller');
+  //   預設true非同步
+    xh.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xh.send('userName=mickey&userAddress=korea&userPhone=0020-3423-232');
+
+    xh.onload = function(){
+      console.log(xh.status);
+      console.log(xh.responseText);
+    }
+
+    console.log('finished');
+
+  </script>
+</head>
+<body>
+
+<h3>Ajax03</h3>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax02</title>
+  <script>
+    var xh = new XMLHttpRequest();
+    xh.open('get', 'json/profile2.json', true);
+    xh.send();
+    ///等待抓取期間時做的方法↓(true:非同步開啟)
+    xh.onload = function(){
+      console.log(xh.responseText);
+    }
+    console.log('finished');
+    //console區會先有finished出現才有資料
+  </script>
+</head>
+<body>
+
+<h3>Ajax02</h3>
+
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax06</title>
+  <script>
+
+      var xh = new XMLHttpRequest();
+      console.log("state1:" + xh.readyState);
+      xh.open('get', '/jsoncreate3.controller',true);
+      console.log("state2:" + xh.readyState);
+      xh.send();
+
+      // 透過controller抓取json格式資訊到console區
+
+      xh.onload = function(){
+          console.log("state3:" + xh.readyState);
+          console.log(xh.responseText);
+          var data = JSON.parse(xh.responseText);
+      //  抓取整筆資料，然後抓出各筆元素
+
+          var resultText = "";
+          for (let i = 0; i < data.length; i++) {
+              var jObj = data[i];
+              console.log(jObj);
+
+              resultText += jObj.houseid + " " + jObj.housename + " " + "<br>";
+          }
+          console.log(resultText);
+          document.getElementById("result1").innerHTML = resultText;;
+      }
+      console.log("state4:" + xh.readyState);
+  </script>
+</head>
+<body>
+
+<h3>Ajax06</h3>
+<div id="result1"></div>
+
+
+</body>
+</html>

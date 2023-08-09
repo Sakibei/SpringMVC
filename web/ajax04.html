@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax04</title>
+  <script>
+      var xh = new XMLHttpRequest();
+      xh.open('get','xml/game.xml',true);
+      xh.send();
+
+      xh.onload = function(){
+          console.log('XML:' + xh.responseXML);
+          console.log(xh.responseXML);
+          var result = xh.responseXML.documentElement;
+          console.log(result);
+
+          // 搜尋筆數
+
+          var tagRoles = result.getElementsByTagName('role');
+          var tagRolesLens = tagRoles.length;
+          console.log('tagRolesLens:' + tagRolesLens);
+
+          // 將所有child元素撈出
+
+          var resultText1 = '';
+          for(var i=0;i<tagRolesLens;i++){
+              var xSel = tagRoles[i];
+              console.log(xSel);
+
+              for(var j=0;j<3;j++){
+                  var r1 = xSel.childNodes[j].nextElementSibling;
+                  var r1Text = r1.textContent;
+                  resultText1+=r1Text + ' ';
+              }
+              resultText1+='<br/>';
+          }
+          console.log(resultText1);
+      }
+  </script>
+</head>
+<body>
+
+<h3>Ajax04</h3>
+
+</body>
+</html>

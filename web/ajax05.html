@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax05</title>
+  <script>
+      var xh = new XMLHttpRequest();
+      xh.open('get','xml/game.xml',true);
+      xh.send();
+
+      xh.onload = function(){
+          console.log('XML:' + xh.responseXML);
+          console.log(xh.responseXML);
+          var result = xh.responseXML.documentElement;
+          console.log(result);
+
+          var tagRoles1 = result.children;
+          var tagRolesLens1 = tagRoles1.length;
+          console.log(tagRoles1);
+          console.log('tagRolesLens1:' + tagRolesLens1);
+
+          var resultText1 = '';
+          for(var m=0;m<tagRolesLens1;m++){
+              var xSel1 = tagRoles1[m];
+              console.log(xSel1);
+
+              var xSel1Lens = xSel1.childElementCount;
+              console.log('xSel1Lens:' + xSel1Lens);
+
+              for(var n=0;n<xSel1Lens;n++){
+                  var nodeText = xSel1.children[n].textContent;
+                  console.log(nodeText);
+                  resultText1+=nodeText + ' ';
+              }
+              resultText1+='<br/>';
+          }
+          console.log(resultText1);
+          //  與ajax04.html相比可以避免抓錯標籤-而有重複抓取的問題(<br/>那行)
+
+          document.getElementById('result1').innerHTML = resultText1;
+          document.getElementById('result2'). value = resultText1;
+
+
+      }
+  </script>
+</head>
+<body>
+
+<h3>Ajax05</h3>
+
+<div id="result1"></div>
+<input type="text" id="result2"/>
+
+</body>
+</html>

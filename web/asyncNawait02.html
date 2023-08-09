@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>asyncNawait01</title>
+    <script>
+        window.onload = function () {
+            async function play() {
+                var promise = new Promise(
+                    function (resolve, reject) {
+                        resolve("have a nice day");
+                    });
+                document.getElementById("result").innerHTML = await promise;
+            //     讓他去等待拿取promise物件
+            //     在 async 函式中，可以使用 await 關鍵字等待一個異步操作完成，而不必使用傳統的回調函式或 Promise 鏈
+            }
+            play();
+        }
+    </script>
+</head>
+<body>
+<h3>aSyncNawait</h3>
+<div id="result"></div>
+</body>
+</html>

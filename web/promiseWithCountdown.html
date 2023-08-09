@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise01</title>
+    <script>
+        window.onload = function () {
+            var countdown = 2; // 設定倒數秒數初始值
+            var countdownElement = document.getElementById("countdown");
+
+            var promise = new Promise(
+                function (resolve, reject) {
+                    var countdownInterval = setInterval(function () {
+                        countdownElement.textContent = "Wait for " + countdown + " seconds";
+
+                        if (countdown === 0) {
+                            clearInterval(countdownInterval); // 倒數結束，清除 interval
+                            resolve('have a nice day, mother fucker');
+                        }
+
+                        countdown--; // 減少倒數秒數
+                    }, 1000); // 每隔 1 秒執行一次
+                });
+
+            promise.then(
+                function (msg) {
+                    countdownElement.textContent = msg;
+                });
+        };
+
+    </script>
+</head>
+<body>
+<h3>Promise</h3>
+<div id="result">
+    <!-- 顯示倒數文字 -->
+    <h3 id="countdown">Wait for 3 seconds</h3>
+</div>
+</body>
+</html>

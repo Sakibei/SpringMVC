@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>asyncNawait01</title>
+  <script>
+      <!--async返回的東西為promise物件，簡化promise非同步操作的流程-->
+     window.onload = function(){
+       async function play(){
+         return "nice to meet you";
+       }
+
+       play().then(function(msg){
+         document.getElementById("result").innerHTML = msg;
+       });
+     };
+  </script>
+</head>
+<body>
+<h3>aSyncNawait</h3>
+<div id="result"></div>
+</body>
+</html>

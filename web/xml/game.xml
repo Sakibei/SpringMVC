@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <game>
     <role>
         <name>DarkAngel</name>
-        <skill>Fuck</skill>
+        <skill>sword</skill>
     </role>
     <role>
-        <name>Benny</name>
-        <skill>Onani</skill>
+        <name>Poseidon</name>
+        <skill>magic</skill>
     </role>
 </game>

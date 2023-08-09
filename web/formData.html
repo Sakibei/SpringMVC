@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FormData</title>
+    <script>
+        window.onload = function(){
+            var form = document.getElementById('form1');
+            var send = document.getElementById('send');
+
+            send.addEventListener('click', function(e){
+                e.preventDefault();
+                var formData = new FormData(form);
+
+                var userName = formData.get("userName");
+                console.log('userName: ' + userName);
+
+                var resultArray = formData.getAll("result1");
+                console.log(resultArray);
+            //  尋找form表單內name為result1的所有標籤
+
+                var xh = new XMLHttpRequest();
+                xh.open('post', 'profiles2.controller', true);
+                xh.send(formData);
+
+                xh.onload = function (){
+                    console.log(xh.status);
+                    console.log(xh.responseText);
+                }
+
+            });
+        }
+    </script>
+</head>
+<body>
+<h2>Information</h2>
+<form id="form1" style="display:flex; text-align: center">
+    <p>
+        Name: <input type="text" name="userName" placeholder="Input The Name Here"/><br>
+        Info1: <input type="text" name="result1"/><br>
+        Info2: <input type="text" name="result1"/><br>
+    </p>
+    <input type="submit" id="send" value="Submit"/>
+</form>
+</body>
+</html>

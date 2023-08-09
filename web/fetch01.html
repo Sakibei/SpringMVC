@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch01</title>
+  <script>
+<!--用於從網絡資源（例如服務器）獲取數據。它是 JavaScript 中的一個內置函式-->
+
+    fetch('/jsoncreate3.controller').then(
+      function(response){
+        if(response.status != 200){
+            console.log("status: " + response.status);
+            return;
+        }
+        response.json().then(function(data){
+          console.log(data);
+          var resultText = "";
+          for (let i = 0; i < data.length; i++) {
+            resultText += data[i].houseid + " " + data[i].housename + "<br>";
+          }
+          document.getElementById('result').innerHTML = resultText;
+        });
+      });
+  </script>
+</head>
+<body>
+<h3>fetch</h3>
+<div id="result"></div>
+</body>
+</html>

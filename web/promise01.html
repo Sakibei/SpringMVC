@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise01</title>
+    <script>
+        window.onload = function () {
+            function showResult(msg) {
+                document.getElementById("result").innerHTML = msg;
+            }
+
+            var promise = new Promise(
+                function (resolve, reject) {
+                    var x = 1;
+                    // 控制項 x = 0 OK， x =1 ERROR
+                    if (x==0) {
+                        resolve("OK");
+                    } else {
+                        reject("FAIL");
+                    }
+                });
+
+            promise.then(
+                function (value) {
+                    showResult(value);
+                //     帶入OK值
+                },
+                function (error) {
+                    showResult(error);
+                //     帶入FAIL值
+                }
+            );
+        }
+    </script>
+</head>
+<body>
+<h3>Promise</h3>
+<div id="result"></div>
+</body>
+</html>

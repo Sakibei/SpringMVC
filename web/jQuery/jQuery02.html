@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery02</title>
+  <script src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
+  <script>
+     $(function(){
+         $("#result").load('jspPage01.jsp', function(){
+             alert('request completed');
+         });
+     });
+
+    //  先將jsp的內容回傳，再執行函式跳出警告訊息(但是警告會優先顯示在畫面)
+  </script>
+</head>
+<body>
+<h3>jQuery02</h3>
+
+<div id="result"></div>
+
+
+</body>
+</html>

@@ -7,7 +7,21 @@
   <script>
       $(document).ready(function(){              //確保在執行jQuery代碼之前，所有的DOM元素都已經載入
           $.get('jspPage01.jsp', function(data){ //$.get()函式的調用，用於向指定的URL發送GET請求，當GET請求成功返回時，將被執行。data 是從伺服器返回的響應數據
-              $('#result').html(data);           //將data的內容插入到頁面上具有"result" ID的元素中
+              $('#result1').html(data);           //將data的內容插入到頁面上具有"result" ID的元素中
+          });
+      });
+
+      $(function(){                              //簡化版
+          $.get('jspPage01.jsp', function(data){
+              $('#result2').html(data);
+          });
+      });
+
+      $(function(){                              //加上字串的方法
+          $.get('jspPage01.jsp', function(data){
+              var additionalText = " result3: ";
+              var updatedData = additionalText + data;
+              $('#result3').html(updatedData);
           });
       });
   </script>
@@ -15,7 +29,9 @@
 <body>
 <h3>jQuery01</h3>
 
-<div id="result"></div>
+<div id="result1"></div>
+<div id="result2"></div>
+<div id="result3"></div>
 
 </body>
 </html>

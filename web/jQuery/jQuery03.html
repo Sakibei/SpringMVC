@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery03</title>
+    <script src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script>
+        $(function(){           //等同document.ready
+            $.getJSON('../json/house.json', function (data) {
+                var resultText = "";
+                for (let i = 0; i < data.length; i++) {
+                    resultText += data[i].houseid + " " + data[i].housename + "<br>";
+                }
+                $('#result').html(resultText);
+            });
+        });
+
+    </script>
+</head>
+<body>
+<h3>jQuery03</h3>
+
+<div id="result"></div>
+
+
+</body>
+</html>

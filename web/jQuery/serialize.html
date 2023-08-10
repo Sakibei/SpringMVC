@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Serialize</title>
+    <script src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script>
+        $(function () {
+            $('#send').click(function () {
+                $('#result').text($('form').serialize());    //執行點擊後在result顯示form的"全部"資訊
+            });
+        });
+    </script>
+</head>
+<body>
+
+<h3>Serialize</h3>
+<div style="max-width: 300px;text-align: right; display:flexbox">
+    <form>
+        Name: <input type="text" name="userName"/><br>
+        Age: <input type="text" name="userAge"/><br>
+    </form>
+
+    <button id="send">Sumbit</button>
+    <div id="result"></div>
+</div>
+
+</body>
+</html>

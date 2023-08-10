@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserCheck</title>
+    <script src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script>
+        $(function () {
+            $('#receive').click(function () {
+                $.ajax({
+                    type: 'get',
+                    url: 'rssreader.controller',
+                    dataType: 'xml',
+                    success: function (data) {
+
+                        console.log(data);
+
+                        // 防止按鈕重複生成
+                        $('#div1').empty("");
+
+                        // 尋找rss內容的標籤
+                        var xTitle, xLink;
+                        $('item', data).each(function (e) {
+
+                            xTitle = $('title', this).text();
+                            xLink = $('link', this).text();
+
+                            // 湊出需要的超連結部分並換行
+                            $('<a/>').attr('href', xLink).attr('target', '_blank').text(xTitle).appendTo($('#div1'));
+                            $('<br/>').appendTo($('#div1'));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body style="text-align: left; max-width: 800px;">
+<h3>RSS</h3>
+<button id="receive">Receive</button>
+<div id="div1"></div>
+</body>
+</html>

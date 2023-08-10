@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoComplete01</title>
+    <link rel="stylesheet" type="text/css" href="/css/autocom.css">
+    <script src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script>
+        $(function () {
+            $('#search').keyup(function () {      //鍵盤輸入時
+                // https://jqueryui.com/autocomplete/ 另一種寫法，要記得引用css跟js
+                $.ajax({
+                    type: 'post',
+                    url: 'animalReader.controller',
+                    data: 'keyword=' + $(this).val(),
+                    success: function (data) {
+                        var result = "";
+                        $.each(data, function (i, n)    //i為自己產生,n為自己命名
+                        {
+                            result += '<div id="animalName" onclick ="list(' + "'" + n.animalName + "'" + ')">' + n.animalName + '</div>';
+                        });
+                        console.log('result: ' + result);
+                        $('#info-lists').show();
+                        $('#info-lists').html(result);
+                    }
+                });
+            });
+        });
+
+        function list(value) {
+            $('#search').val(value);
+            $('#info-lists').hide();
+        }
+    </script>
+</head>
+
+
+<body style="text-align: left; max-width: 500px;">
+<h3>AutoComplete01</h3>
+<div id="basis" class="basis">
+    Animal Name:<br>
+    <input type="text" id="search" placeholder="Write some animal name"/>
+    <div id="info-lists"></div>
+</div>
+</body>
+</html>

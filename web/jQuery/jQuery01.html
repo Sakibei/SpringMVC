@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery01</title>
+  <script src="../js/code.jquery.com_jquery-3.7.0.min.js"></script>
+  <script>
+      $(document).ready(function(){              //確保在執行jQuery代碼之前，所有的DOM元素都已經載入
+          $.get('jspPage01.jsp', function(data){ //$.get()函式的調用，用於向指定的URL發送GET請求，當GET請求成功返回時，將被執行。data 是從伺服器返回的響應數據
+              $('#result').html(data);           //將data的內容插入到頁面上具有"result" ID的元素中
+          });
+      });
+  </script>
+</head>
+<body>
+<h3>jQuery01</h3>
+
+<div id="result"></div>
+
+</body>
+</html>

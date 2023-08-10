@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload01</title>
+    <script>
+        function upload() {
+            alert('ok');
+            var form = document.getElementById('form1');
+            var formData = new FormData(form);
+
+            fetch('/uploadfile.controller', {           //透過fetch將form內容發送到指定url
+                method: 'post', body: formData
+            }).then(function (response) {               //用promise來處理url回傳的回應
+                if (response.status != 200) {
+                    console.log('status1: ' + response.status);
+                    return;
+                }
+                console.log('status2: ' + response.status);
+                console.log('status2: ' + response.status);
+            });
+        }
+    </script>
+</head>
+<body>
+<h3>upload01</h3>
+
+<form id="form1">
+    <p>
+    <h5>Please select a file to upload</h5>
+    <input type="file" name="myFile"/>
+    <button type="button" onclick="upload()">Upload</button>
+    </p>
+</form>
+</body>
+</html>

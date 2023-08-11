@@ -4,6 +4,7 @@ package com.benny.model;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Component;
 
+//沒有開啟ddl_auto功能所以不會建立表格
 @Entity
 @Table(name="animal")
 @Component
